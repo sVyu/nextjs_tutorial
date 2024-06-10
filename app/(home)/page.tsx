@@ -8,8 +8,6 @@ export const metadata = {
 export const API_URL = 'https://nomad-movies.nomadcoders.workers.dev/movies';
 async function getMovies() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  // return fetch(API_URL).then((response) => response.json());
   const response = await fetch(API_URL);
   const json = await response.json();
   return json;
@@ -17,7 +15,6 @@ async function getMovies() {
 
 export default async function HomePage() {
   const movies = await getMovies();
-  // return <div>{JSON.stringify(movies)}</div>;
   return (
     <div className={styles.container}>
       {movies.map((movie) => (
